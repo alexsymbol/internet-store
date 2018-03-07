@@ -1,4 +1,4 @@
-import Test from '../models/test';
+import User from '../models/user';
 import HttpStatus from 'http-status-codes';
 import { controller, get, post, put, del } from 'koa-dec-router';
 import BaseCtrl from './Base';
@@ -8,7 +8,7 @@ export default class TestCtrl extends BaseCtrl {
     @get('')
     async getList(ctx) {
         try {
-            const items = await Test.find().lean();
+            const items = await User.find().lean();
 
             ctx.ok(items);
         } catch (err) {
