@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  username: { type: String, required: true },
+  username: String,
   ownname: String,
   surname: String,
-  password: { type: String, required: true },
+  password: String,
   email: String,
-  gender: String,
-  age: Number
+  gender: Number,
+  age: String
 });
 
 export default mongoose.model('customers', schema);

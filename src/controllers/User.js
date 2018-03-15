@@ -2,8 +2,9 @@ import User from '../models/user';
 import HttpStatus from 'http-status-codes';
 import { controller, get, post, put, del } from 'koa-dec-router';
 import BaseCtrl from './Base';
+const jwt = require('jsonwebtoken');
 
-@controller('/test')
+@controller('/auth')
 export default class TestCtrl extends BaseCtrl {
     @get('')
     async getList(ctx) {
@@ -18,12 +19,43 @@ export default class TestCtrl extends BaseCtrl {
     @post('')
     async createItem(ctx) {
         try {
+            const user = await User.findOne({username: ctx.request.body.username});
+            if (user) {
+                return ctx.throw(HttpStatus.PRECONDITION_FAILED, "Please use a unique username");
+            }
             const item = await User.create(ctx.request.body);
             ctx.ok(item);
         }
         catch (err) {
             ctx.throw(HttpStatus.BAD_REQUEST, err.message);
         }
+    }
+
+    @post('/login')
+    async login(ctx) {
+
+        const user = await User.findOne({username: ctx.request.body.username});
+
+        if (!user) {
+            return ctx.throw(HttpStatus.NOT_FOUND, "User is not found.");
+        }
+
+        console.log('ctx.params.user', ctx.request.body, user);
+
+        if (ctx.request.body.password !== user.password) {
+            ctx.status = ctx.status = 401;
+            ctx.body = {
+                message: "Authentication failed"
+            };
+            return ctx;
+        }
+
+        ctx.status = 200;
+        ctx.body = {
+            token: jwt.sign({ _id: user._id }, 'A very secret key'), //Should be the same secret key as the one used is ./jwt.js
+            message: "Successfully logged in!"
+        };
+        return ctx;
     }
 
     @get('/:_id')
