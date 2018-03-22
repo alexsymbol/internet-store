@@ -30,10 +30,9 @@ export default {
   methods: {
     onLogin() {
       axios.post('/auth/login', this.User)
-       .then((response) => {
+        .then((response) => {
         console.log(response.data.token);
-      localStorage.setItem('jwtToken', response.data.token);
-        //this.$router.push('/profilepage');
+        localStorage.setItem('jwtToken', response.data.token);
       })
       .catch(function (error) {
         console.log(error);
@@ -42,3 +41,5 @@ export default {
   }
 };
 </script>
+                    
+    

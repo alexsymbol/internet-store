@@ -4,26 +4,34 @@
       <thead>
         <tr>
           <th>Image</th>
-          <th>Name</th>
+          <th>Title</th>
           <th>Price</th>
           <th>Color</th>
           <th>Quantity</th>
           <th>Amount</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody v-for="item in items">
           <tr v-for="product in item.products">
             <td><img :src="product.image" /></td>
-            <td>{{ product.name }}</td>
+            <td>{{ product.title }}</td>
             <td> {{ product.price }}</td>
             <td> {{ product.color }}</td>   
             <td> {{ product.quantity }}</td>   
             <td>{{ item.amount }}</td>
+            <td>
+              <el-button
+                        size="mini"
+                        type="danger"
+                        @click="onDelete()" icon="el-icon-delete">
+              </el-button>
+            </td>
           </tr>
       </tbody>
     </table>
     <div class="buy">
-      <el-button type="primary">Buy</el-button>
+      <el-button type="primary" @click="onBuy">Buy</el-button>
     </div>
   </div>
 </template>
@@ -44,6 +52,26 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
+  },
+  methods: {
+    onBuy() {
+      axios.post('/orders', this.items)                                 
+        .then(response => {                                     
+        console.log(this.$route.name);                                     
+        this.$router.push('/orders');                                 
+      })                                 
+      .catch(error => {                                     
+        console.log(error);                                 
+      });  
+    }
+    //  onDelete() {
+    //  axios.put('/cart/:_id', this.items)                                 
+    //     .then(response => {                                     
+    //     console.log(this.$route.name);                                   
+    //   })                                 
+    //   .catch(error => {                                     
+    //     console.log(error);                                 
+    //   });  
   }
 }
 </script>
@@ -65,4 +93,3 @@ export default {
     text-align: center;
   }
 </style>
-

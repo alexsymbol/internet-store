@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    Payment
+    OrderTable
 
   </div>
 </template>

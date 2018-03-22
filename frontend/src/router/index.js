@@ -4,10 +4,8 @@ import logIn from '../views/logIn';
 import signUp from '../views/signUp';
 import ProfilePage from '../views/ProfilePage';
 import BindingAccount from '../views/BindingAccount';
-import Basket from '../views/Basket';
-import Payment from '../views/Payment';
-import Buy from '../views/Buy';
 import Cart from '../views/Cart';
+import OrderTable from '../views/OrderTable';
 
 
 Vue.use(Router);
@@ -36,24 +34,17 @@ export default new Router({
       component: BindingAccount
     },
     {
-      title: 'Basket',
-      path: '/basket',
-      component: Basket
-    },
-    {
-      title: 'Payment',
-      path: '/payment',
-      component: Payment
-    },
-    {
-      title: 'Buy',
-      path: '/buy',
-      component: Buy
-    },
-    {
       title: 'Cart',
       path: '/cart',
-      component: Cart
+      component: Cart,
+        props:{
+        customer_id: true
+        }
+    },
+    {
+      title: 'Orders',
+      path: '/orders',
+      component: OrderTable
     },
     {
       path: '/*',
