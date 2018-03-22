@@ -37,5 +37,5 @@ const configure = axios => {
   );
   return axios
 };
-
+storage.setToken(window.localStorage.getItem('jwtToken'));
 export default configure(axios)

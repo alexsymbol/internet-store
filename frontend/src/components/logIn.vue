@@ -15,6 +15,9 @@
 
 <script>
 import axios from '../my-axios';
+ console.log('axios.storage');
+ console.log(axios.token);
+ 
 export default {
   data() {
     return {
@@ -27,8 +30,10 @@ export default {
   methods: {
     onLogin() {
       axios.post('/auth/login', this.User)
-       .then(function(response) {
-        console.log(response);
+       .then((response) => {
+        console.log(response.data.token);
+      localStorage.setItem('jwtToken', response.data.token);
+        //this.$router.push('/profilepage');
       })
       .catch(function (error) {
         console.log(error);

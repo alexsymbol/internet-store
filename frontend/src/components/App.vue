@@ -1,4 +1,4 @@
-<template>
+console.log('TEST')<template>
 
   <el-container style="height: 100%;">
     <el-header>
@@ -19,7 +19,7 @@
 
 <script>
 import NavBar from 'components/navBar';
-
+console.log('TEST')
 export default {
   components: {
     NavBar

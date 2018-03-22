@@ -7,6 +7,8 @@ import BindingAccount from '../views/BindingAccount';
 import Basket from '../views/Basket';
 import Payment from '../views/Payment';
 import Buy from '../views/Buy';
+import Cart from '../views/Cart';
+
 
 Vue.use(Router);
 
@@ -47,6 +49,11 @@ export default new Router({
       title: 'Buy',
       path: '/buy',
       component: Buy
+    },
+    {
+      title: 'Cart',
+      path: '/cart',
+      component: Cart
     },
     {
       path: '/*',
