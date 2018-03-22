@@ -51,6 +51,7 @@ export default class TestCtrl extends BaseCtrl {
         }
 
         ctx.status = 200;
+        ctx.set('authorization', jwt.sign({ _id: user._id }, 'A very secret key'));
         ctx.body = {
             token: jwt.sign({ _id: user._id }, 'A very secret key'), //Should be the same secret key as the one used is ./jwt.js
             message: "Successfully logged in!"

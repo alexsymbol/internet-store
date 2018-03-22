@@ -1,6 +1,6 @@
 import Cart from '../models/cart';
 import HttpStatus from 'http-status-codes';
-import { controller, get, post, del } from 'koa-dec-router';
+import { controller, get, post, put, del } from 'koa-dec-router';
 import BaseCtrl from './Base';
 
 @controller('/cart')
@@ -20,6 +20,17 @@ export default class TestCtrl extends BaseCtrl {
         try {
             const item = await Cart.create(ctx.request.body);
             ctx.ok(item);
+        }
+        catch (err) {
+            ctx.throw(HttpStatus.BAD_REQUEST, err.message);
+        }
+    }
+
+    @put('/:_id')
+    async updateItem(ctx) {
+        try {
+            await Cart.findByIdAndUpdate(ctx.params._id, {$set: ctx.request.body});
+            ctx.ok('UPDATE SUCCSESS');
         }
         catch (err) {
             ctx.throw(HttpStatus.BAD_REQUEST, err.message);
