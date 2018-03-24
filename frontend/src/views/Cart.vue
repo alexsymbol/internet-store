@@ -7,32 +7,23 @@
           <th>Title</th>
           <th>Price</th>
           <th>Color</th>
-          <th>Quantity</th>
-          <th>Amount</th>
+          <!-- <th>Quantity</th> -->
           <th>Delete</th>
         </tr>
       </thead>
-      <tbody v-for="item in items">
-          <tr v-for="product in item.products">
+      <tbody>
+          <tr v-for="product in items">
             <td><img :src="product.image" /></td>
             <td>{{ product.title }}</td>
             <td> {{ product.price }}</td>
             <td> {{ product.color }}</td>   
-            <td> {{ product.quantity }}</td>   
-            <td>{{ item.amount }}</td>
-            <td>
-              <el-button
-                        size="mini"
-                        type="danger"
-                        @click="onDelete()" icon="el-icon-delete">
-              </el-button>
-            </td>
+            <!-- <td><el-input-number v-model="num1" value="product.quantity" @change="handleChange" :min="1" :max="10"></el-input-number></td>    -->
+            <td><el-button size="mini" type="danger" @click="onDelete(product)" icon="el-icon-delete"></el-button></td>
           </tr>
       </tbody>
     </table>
-    <div class="buy">
-      <el-button type="primary" @click="onBuy">Buy</el-button>
-    </div>
+     <p>Загальна сума - </p>
+            <el-button type="primary" @click="onBuy">Buy</el-button>
   </div>
 </template>
 
@@ -41,7 +32,9 @@ import axios from '../my-axios';
 export default {
    data() {
     return {
-      items: {}
+      items: {},
+      num1: [],
+      amount: ''
     };
   },
   created: function () {
@@ -54,8 +47,11 @@ export default {
       });
   },
   methods: {
+    handleChange(value) {
+        console.log(value)
+      },
     onBuy() {
-      axios.post('/orders', this.items)                                 
+      axios.get('/orders', this.items)                                 
         .then(response => {                                     
         console.log(this.$route.name);                                     
         this.$router.push('/orders');                                 
@@ -63,15 +59,25 @@ export default {
       .catch(error => {                                     
         console.log(error);                                 
       });  
+    },
+    onDelete (selected) {
+        this.items.forEach((product) => {
+            if (product._id === selected._id) {
+              const index =  this.items.indexOf(product);
+                if (index !== -1) {
+                   this.items.splice(index, 1);  //                                            
+                  axios.delete('/cart/' + product._id)                                 
+                    .then(response => {
+                    console.log(response)                                                                       
+                  })                                 
+                  .catch(error => {                                     
+                    console.log(error);                                 
+                  });
+                }
+            }
+        }
+        );
     }
-    //  onDelete() {
-    //  axios.put('/cart/:_id', this.items)                                 
-    //     .then(response => {                                     
-    //     console.log(this.$route.name);                                   
-    //   })                                 
-    //   .catch(error => {                                     
-    //     console.log(error);                                 
-    //   });  
   }
 }
 </script>

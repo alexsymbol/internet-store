@@ -2,11 +2,14 @@ import Cart from '../models/cart';
 import HttpStatus from 'http-status-codes';
 import { controller, get, post, put, del } from 'koa-dec-router';
 import BaseCtrl from './Base';
+const jwt = require('jsonwebtoken');
 
 @controller('/cart')
 export default class TestCtrl extends BaseCtrl {
     @get('')
     async getCart(ctx) {
+        var decoded = jwt.decode(ctx.headers.authorization, {complete: true});
+        console.log(decoded);
         try {
             const items = await Cart.find().lean();
             ctx.ok(items);
