@@ -41,6 +41,7 @@ export default {
           localStorage.setItem('jwtToken', response.data.token);
           this.User.authenticated = true;
           window.location.href = '/profilepage';
+          console.log(response.data);
       })
       .catch(function (error) {
         console.log(error),
