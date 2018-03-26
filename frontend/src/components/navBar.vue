@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <el-menu class="mr-auto" :router="true" :default-active="activeLink" mode="horizontal">
-                <template v-for="rule in $router.options.routes" v-if="rule.title">
+                <template v-bind:title v-for="rule in $router.options.routes" v-if="rule.title">
                     <el-submenu v-if="rule.children && rule.children.length > 0" :index="rule.path">
                         <template slot="title"><i :class="rule.icon"></i>{{ rule.title }}</template>
                         <el-menu-item v-for="child in rule.children" :index="rule.path + '/' + child.path">{{ child.title }}</el-menu-item>

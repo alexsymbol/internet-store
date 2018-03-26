@@ -1,8 +1,7 @@
 <template>
     <el-form :label-position="labelPosition" label-width="100px" :model="User">
         <el-form-item label="Username">
-            <el-input></el-input>
-            <!-- <div>{{ user.username }}</div> -->
+            <el-input v-model="User.username"></el-input>
         </el-form-item>
         <el-form-item label="Ownname">
             <el-input v-model="User.ownname"></el-input>
@@ -44,7 +43,6 @@ export default {
         password: '',
         email: '',
         gender: '1',
-        _id: '',
         age: ''
       }
     };

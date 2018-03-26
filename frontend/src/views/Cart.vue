@@ -7,23 +7,27 @@
           <th>Title</th>
           <th>Price</th>
           <th>Color</th>
-          <!-- <th>Quantity</th> -->
           <th>Delete</th>
         </tr>
       </thead>
       <tbody>
-          <tr v-for="product in items">
+          <tr v-for="product in items" :key="product">
             <td><img :src="product.image" /></td>
             <td>{{ product.title }}</td>
-            <td> {{ product.price }}</td>
-            <td> {{ product.color }}</td>   
-            <!-- <td><el-input-number v-model="num1" value="product.quantity" @change="handleChange" :min="1" :max="10"></el-input-number></td>    -->
+            <td>{{ product.price }}</td>
+            <td>{{ product.color }}</td>   
             <td><el-button size="mini" type="danger" @click="onDelete(product)" icon="el-icon-delete"></el-button></td>
           </tr>
       </tbody>
     </table>
-     <p>Загальна сума - </p>
-            <el-button type="primary" @click="onBuy">Buy</el-button>
+    <el-row :gutter="20">
+  <el-col :span="12" :offset="6"><div class="grid-content bg-purple">
+    <h2>Subtotal : ${{ total }} </h2>
+      <el-button type="primary" @click="onBuy">Proceed to checkout</el-button>
+    
+    </div></el-col>
+</el-row>
+      
   </div>
 </template>
 
@@ -32,10 +36,8 @@ import axios from '../my-axios';
 export default {
    data() {
     return {
-      items: {},
-      num1: [],
-      amount: ''
-    };
+      items: []
+    }; 
   },
   created: function () {
     axios.get('/cart')
@@ -46,40 +48,44 @@ export default {
         console.log(error);
       });
   },
+  computed: {
+    total () {
+      return this.items.reduce((sum, product) => {
+        return sum + product.price
+      }, 0)
+    }
+  },
   methods: {
-    handleChange(value) {
-        console.log(value)
-      },
     onBuy() {
-      axios.get('/orders', this.items)                                 
-        .then(response => {                                     
-        console.log(this.$route.name);                                     
-        this.$router.push('/orders');                                 
+      axios.post('https://internet-store-admin.herokuapp.com/api/orders', this.items)                                 
+        .then(response => {                                      
+        console.log(this.$route.name);                              
+        this.$router.push('/orders');                      
       })                                 
       .catch(error => {                                     
         console.log(error);                                 
       });  
     },
     onDelete (selected) {
-        this.items.forEach((product) => {
-            if (product._id === selected._id) {
-              const index =  this.items.indexOf(product);
-                if (index !== -1) {
-                   this.items.splice(index, 1);  //                                            
-                  axios.delete('/cart/' + product._id)                                 
-                    .then(response => {
-                    console.log(response)                                                                       
-                  })                                 
-                  .catch(error => {                                     
-                    console.log(error);                                 
-                  });
-                }
+      this.items.forEach((product) => {
+        if (product._id === selected._id) {
+          const index =  this.items.indexOf(product);
+            if (index !== -1) {
+              this.items.splice(index, 1);  //                                            
+              axios.delete('/cart/' + product._id)                                 
+                .then(response => {
+                  console.log(response)                                                 
+              })                                 
+              .catch(error => {                                     
+                console.log(error);                                 
+              });
             }
+          }
         }
-        );
+      );
     }
   }
-}
+}                
 </script>
 
 <style>
@@ -97,5 +103,10 @@ export default {
   }
   .buy{
     text-align: center;
+  }
+  .grid-content{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
   }
 </style>

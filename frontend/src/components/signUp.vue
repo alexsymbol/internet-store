@@ -1,13 +1,10 @@
 <template>
     <el-form>
-        <el-form-item label="Own name">
-            <el-input v-model="User.ownname"></el-input>
-        </el-form-item>
-        <el-form-item label="Surname">
-            <el-input v-model="User.surname"></el-input>
-        </el-form-item>
         <el-form-item label="Username">
             <el-input v-model="User.username"></el-input>
+        </el-form-item>
+        <el-form-item label="Email">
+            <el-input v-model="User.email"></el-input>
         </el-form-item>
         <el-form-item label="Password">
             <el-input type="password" v-model="User.password"></el-input>
@@ -26,8 +23,7 @@ export default {
     return {
       User: {
         username: '',
-        ownname: '',
-        surname: '',
+        email: '',
         password: ''
       }    
     };
@@ -37,6 +33,7 @@ export default {
       axios.post('/auth/', this.User)
         .then(function(response) {
           console.log(response);
+          window.location.href = '/profilepage';
         })
         .catch(function(error) {
           console.log(error);

@@ -7,7 +7,7 @@
             <el-input type="password" v-model="User.password"></el-input>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="onLogin">Login</el-button>
+            <el-button type="primary" @click="onLogin()">Login</el-button>
             <a href="signup" class="btn btn-link">Register</a>
         </el-form-item>
     </el-form>
@@ -15,28 +15,38 @@
 
 <script>
 import axios from '../my-axios';
- console.log('axios.storage');
- console.log(axios.token);
  
 export default {
   data() {
     return {
       User: {
+        authenticated: false, 
         username: '',
-        password: ''
+        password: '',
+        ownname: '',
+        surname: '',
+        gender: '1',
+        email: '',
+        age: '',
+        _id: ''
       }
     };
   },
   methods: {
     onLogin() {
+      console.log(this.User);
       axios.post('/auth/login', this.User)
         .then((response) => {
-        console.log(response.data.token);
-        localStorage.setItem('jwtToken', response.data.token);
+          console.log(response.data);
+          localStorage.setItem('jwtToken', response.data.token);
+          this.User.authenticated = true;
+          window.location.href = '/profilepage';
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error),
+        alert('User is not found')
       });
+      
     }
   }
 };

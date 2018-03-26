@@ -37,7 +37,7 @@ export default class TestCtrl extends BaseCtrl {
         const user = await User.findOne({username: ctx.request.body.username});
 
         if (!user) {
-            return ctx.throw(HttpStatus.NOT_FOUND, "User is not found.");
+            return ctx.throw(HttpStatus.UNAUTHORIZED, "User is not found.");
         }
 
         console.log('ctx.params.user', ctx.request.body, user);
@@ -57,6 +57,8 @@ export default class TestCtrl extends BaseCtrl {
             message: "Successfully logged in!"
         };
 
+        ctx.ok(user);
+
         return ctx;
     }
 
@@ -74,7 +76,7 @@ export default class TestCtrl extends BaseCtrl {
     @put('/:_id')
     async updateItem(ctx) {
         try {
-            await User.findByIdAndUpdate(ctx.params._id, {$set: ctx.request.body});
+            const item = await User.findByIdAndUpdate(ctx.params._id, {$set: ctx.request.body});
             ctx.ok('UPDATE SUCCSESS');
         }
         catch (err) {
