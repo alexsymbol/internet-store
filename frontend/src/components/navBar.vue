@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <span class="navbar-brand">
-              <a href="/login">Store</a>
+              <a href="/login" v-if="!user">Store</a>
         </span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,9 @@
     }
 </style>
 <script>
+
 export default {
-    components: {
-    },
+    props: ['user'],
     data() {
         return {
             activeLink: null

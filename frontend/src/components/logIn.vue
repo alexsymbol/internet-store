@@ -34,20 +34,20 @@ export default {
   },
   methods: {
     onLogin() {
-      console.log(this.User);
       axios.post('/auth/login', this.User)
         .then((response) => {
           console.log(response.data);
           localStorage.setItem('jwtToken', response.data.token);
+          localStorage.setItem('user_id', response.data._id);
+          
           this.User.authenticated = true;
-          window.location.href = '/profilepage';
-          console.log(response.data);
+          //console.log(User);
+         window.location.href = '/profilepage'
       })
       .catch(function (error) {
         console.log(error),
         alert('User is not found')
       });
-      
     }
   }
 };

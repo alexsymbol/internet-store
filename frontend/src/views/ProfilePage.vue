@@ -3,7 +3,11 @@
     <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Edit profile</h2>
-            <profilePage></profilePage>
+            <p>Username - {{ user.username }}</p>
+            <p>Owname - {{ user.ownname }}</p>
+            <p>{{ user.surname }}</p>
+            
+            <profilePage ></profilePage>
         </div>
     </el-col>
   </el-row>
@@ -12,6 +16,7 @@
 <script>
 import profilePage from '../components/profilePage.vue';
 export default {
+  props: ['user'],
   components: {
     'profilePage': profilePage
   }

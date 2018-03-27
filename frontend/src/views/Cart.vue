@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-          <tr v-for="product in items" :key="product">
+          <tr v-for="product in items">
             <td><img :src="product.image" /></td>
             <td>{{ product.title }}</td>
             <td>{{ product.price }}</td>
@@ -34,6 +34,7 @@
 <script>
 import axios from '../my-axios';
 export default {
+  props: ['user'],
    data() {
     return {
       items: []
@@ -57,10 +58,18 @@ export default {
   },
   methods: {
     onBuy() {
-      axios.post('https://internet-store-admin.herokuapp.com/api/orders', this.items)                                 
+      let idx = Math.floor(Math.random() * 1000000);
+      let order = {
+        'id': idx, 
+        'customer_id': this.$props.user._id,
+        'customer_name': this.$props.user.ownname,
+        'products': this.items 
+        }
+      console.log(order);
+      axios.post('https://internet-store-admin.herokuapp.com/api/orders', order)                                 
         .then(response => {                                      
-        console.log(this.$route.name);                              
-        this.$router.push('/orders');                      
+        console.log(response.data);                              
+        //this.$router.push('/orders');                      
       })                                 
       .catch(error => {                                     
         console.log(error);                                 
