@@ -11,7 +11,7 @@
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="onSignup">Sign up</el-button>
-            <!-- <a href="/login" class="btn btn-link">Login</a> -->
+            <a href="/login" class="btn btn-link">Login</a>
         </el-form-item>
     </el-form>
 </template>

@@ -3,7 +3,7 @@
     <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Sign up</h2>
-            <Signup></Signup>
+            <SignUp></SignUp>
         </div>
     </el-col>
   </el-row>
