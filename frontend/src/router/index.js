@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import logIn from '../views/logIn';
-import signUp from '../views/signUp';
+import LogIn from '../views/LogIn';
+import SignUp from '../views/SignUp';
 import ProfilePage from '../views/ProfilePage';
 import Cart from '../views/Cart';
 import OrderTable from '../views/OrderTable';
@@ -14,12 +14,12 @@ export default new Router({
     {
       name: 'Loign',
       path: '/login',
-      component: logIn
+      component: LogIn
     },
     {
       name: 'Sign Up',
       path: '/signup',
-      component: signUp
+      component: SignUp
     },
     {
       name: 'Profile page',

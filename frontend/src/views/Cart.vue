@@ -117,7 +117,7 @@ export default {
         if (product._id === selected._id) {
           const index =  this.items.indexOf(product);
             if (index !== -1) {
-              this.items.splice(index, 1);  //                                            
+              this.items.splice(index, 1);                                      
               axios.delete('/cart/' + product._id)                                 
                 .then(response => {
                   console.log(response)                                                 
