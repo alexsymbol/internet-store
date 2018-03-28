@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import LogsIn from '../../components/LogsIn.vue';
+import LogsIn from '../components/LogsIn.vue';
 export default {
   components: {
     LogsIn
