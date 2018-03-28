@@ -12,7 +12,6 @@
 <script>
 import Signup from '../components/Signup';
 export default {
-  props: ['user'],
   components: {
     'Signup': Signup
   }
