@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ProfilePage from '../components/ProfilePage.vue';
+import Profilepage from '../components/Profilepage.vue';
 export default {
   data() {
     return {
@@ -47,7 +47,7 @@ export default {
   },
   props: ['user'],
   components: {
-    'ProfilePage': ProfilePage
+    'Profilepage': Profilepage
   },
   methods: {
     logout() {
