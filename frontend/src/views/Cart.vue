@@ -94,7 +94,7 @@ export default {
       }
 
       function postBank() {
-        //return axios.post('http://banksystemm.herokuapp.com/payment?sum=' + total);
+        return axios.post('http://banksystemm.herokuapp.com/payment?sum=' + total);
       }
 
       axios.all([postOrder(), postBank()])
