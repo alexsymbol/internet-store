@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import LogIn from '../components/logsIn';
+import LogsIn from '../components/logsIn';
 export default {
   components: {
     LogIn,
