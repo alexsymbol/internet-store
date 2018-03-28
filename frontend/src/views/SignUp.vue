@@ -1,19 +1,19 @@
 <template>
   <el-row :gutter="20">
-    <el-col :span="6" :offset="9">
+    <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Sign up</h2>
-            <Signup></Signup>
+            <SignUp></SignUp>
         </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
-import Signup from '../components/Signup';
+import SignUp from '../components/SignUp';
 export default {
   components: {
-    'Signup': Signup
+    'SignUp': SignUp
   }
 };
 </script>
