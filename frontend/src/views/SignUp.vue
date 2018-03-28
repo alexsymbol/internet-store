@@ -13,7 +13,7 @@
 import Signup from '../components/Signup';
 export default {
   components: {
-    'Signup': Signup
+    'SignUp': SignUp
   }
 };
 </script>

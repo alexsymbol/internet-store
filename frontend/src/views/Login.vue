@@ -13,7 +13,7 @@
 import Login from '../components/Login';
 export default {
   components: {
-    'Login': Login
+    'LogIn': LogIn
   }
 };
 </script>
