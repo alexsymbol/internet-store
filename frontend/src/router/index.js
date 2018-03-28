@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import LogIn from '../views/LogIn';
-import SignUp from '../views/SignUp';
-import Profile from '../views/Profile';
+import LogIn from '../views/LogIn.vue';
+import SignUp from '../views/SignUp.vue';
+import Profile from '../views/Profile.vue';
 import Cart from '../views/Cart.vue';
 
 Vue.use(Router);
