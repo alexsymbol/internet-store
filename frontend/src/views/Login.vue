@@ -13,7 +13,7 @@
 import LogsIn from '../components/logsIn';
 export default {
   components: {
-    LogIn,
+    LogsIn,
   }
 };
 </script>

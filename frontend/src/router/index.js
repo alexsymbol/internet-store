@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import LogIn from '../views/LogIn';
+import LogsIn from '../views/LogsIn';
 import SignUp from '../views/SignUp';
 import Profile from '../views/Profile';
 import Cart from '../views/Cart';
@@ -14,7 +14,7 @@ export default new Router({
       name: 'login',
       title: 'Login',
       path: '/login',
-      component: LogIn
+      component: LogsIn
     },
     {
       name: 'signup',
