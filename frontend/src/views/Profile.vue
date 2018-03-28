@@ -47,7 +47,7 @@ export default {
   },
   props: ['user'],
   components: {
-    'Profile': Profile
+    Profile
   },
   methods: {
     logout() {

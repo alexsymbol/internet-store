@@ -3,17 +3,17 @@
     <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Login</h2>
-            <LogsIn></LogsIn>
+            <log-in></log-in>
         </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
-import LogsIn from '../components/LogsIn.vue';
+import LogIn from '../components/logIn';
 export default {
   components: {
-    LogsIn
+    LogIn
   }
 };
 </script>
