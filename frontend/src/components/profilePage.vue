@@ -34,18 +34,22 @@ export default {
       User: {}
     };
   },
+  props: ['user'],
   methods: {
     onUpdate() {
+        let user_id = localStorage.getItem('user_id');
+        console.log(this.user_id);
+        console.log(this.user);
         console.log(this.User);
-      axios
-        .put('/auth/:_id', this.User)
-        .then(function(response) {
-          console.log(response);
-        console.log('OK');
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+    //   axios
+    //     .put('/auth' + this.User._id)
+    //     .then(function(response) {
+    //       console.log(response);
+    //     console.log('OK');
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //     });
     }
   }
 };
