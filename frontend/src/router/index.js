@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import LogIn from '../views/LogIn';
-import SignUp from '../views/SignUp';
+import Login from '../views/Login';
+import Signup from '../views/Signup';
 import Profile from '../views/Profile';
 import Cart from '../views/Cart.vue';
 
@@ -12,11 +12,11 @@ export default new Router({
   routes: [
     {
       path: '/login',
-      component: LogIn
+      component: Login
     },
     {
       path: '/signup',
-      component: SignUp
+      component: Signup
     },
     {
       title: 'Profile',

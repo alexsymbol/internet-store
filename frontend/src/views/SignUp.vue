@@ -3,17 +3,17 @@
     <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Sign up</h2>
-            <SignUp></SignUp>
+            <Signup></Signup>
         </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
-import SignUp from '../components/SignUp';
+import Signup from '../components/Signup';
 export default {
   components: {
-    'SignUp': SignUp
+    'Signup': Signup
   }
 };
 </script>
