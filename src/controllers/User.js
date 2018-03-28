@@ -84,19 +84,6 @@ export default class TestCtrl extends BaseCtrl {
         }
     }
 
-    @put('/profilepage/:_id')
-    async updateItem(ctx) {
-        try {
-            const item = await User.findByIdAndUpdate(ctx.params._id, {$set: ctx.request.body});
-            ctx.ok('UPDATE SUCCSESS');
-        }
-        catch (err) {
-            ctx.throw(HttpStatus.BAD_REQUEST, err.message);
-        }
-    }
-
-
-
 
     @del('/:_id')
     async deleteItem(ctx) {

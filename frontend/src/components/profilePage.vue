@@ -36,8 +36,9 @@ export default {
   },
   methods: {
     onUpdate() {
+        console.log(this.User);
       axios
-        .put('/auth/:_id ', this.User)
+        .put('/auth/:_id', this.User)
         .then(function(response) {
           console.log(response);
         console.log('OK');

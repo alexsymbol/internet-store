@@ -12,12 +12,10 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      name: 'LogIn',
       path: '/login',
       component: LogIn
     },
     {
-      name: 'SignUp',
       path: '/signup',
       component: SignUp
     },
@@ -37,7 +35,6 @@ export default new Router({
         }
     },
     {
-      name: 'OrderTable',
       title: 'Orders',
       path: '/orders',
       component: OrderTable
