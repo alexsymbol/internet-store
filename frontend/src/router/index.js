@@ -4,7 +4,6 @@ import Login from '../views/Login';
 import signup from '../views/SignUp';
 import profilepage from '../views/ProfilePage';
 import Cart from '../views/Cart';
-import Ordertable from '../views/Ordertable';
 
 Vue.use(Router);
 
@@ -31,10 +30,6 @@ export default new Router({
         props:{
         customer_id: true
         }
-    },
-    {
-      path: '/orders',
-      component: Ordertable
     },
     {
       path: '/*',
