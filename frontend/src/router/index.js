@@ -4,7 +4,7 @@ import Login from '../views/Login';
 import signup from '../views/SignUp';
 import profilepage from '../views/ProfilePage';
 import Cart from '../views/Cart';
-import ordertable from '../views/OrderTable';
+import Ordertable from '../views/Ordertable';
 
 Vue.use(Router);
 
@@ -33,9 +33,8 @@ export default new Router({
         }
     },
     {
-      title: 'Orders',
       path: '/orders',
-      component: ordertable
+      component: Ordertable
     },
     {
       path: '/*',
