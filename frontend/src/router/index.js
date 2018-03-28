@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '../views/Login.vue';
-import SignUp from '../views/Signup.vue';
-import ProfilePage from '../views/Profilepage.vue';
+import LogIn from '../views/LogIn';
+import SignUp from '../views/SignUp';
+import ProfilePage from '../views/ProfilePage';
 import Cart from '../views/Cart.vue';
 
 Vue.use(Router);
@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/login',
-      component: Login
+      component: LogIn
     },
     {
       path: '/signup',
