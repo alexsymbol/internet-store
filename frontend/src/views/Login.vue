@@ -8,6 +8,7 @@
     </el-col>
   </el-row>
 </template>
+
 <script>
 import Login from '../components/Login';
 export default {

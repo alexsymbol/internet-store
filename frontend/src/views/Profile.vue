@@ -29,7 +29,7 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="Edit profile" name="second">
-              <Profile ></Profile>
+              <Profile></Profile>
           </el-tab-pane>
         </el-tabs>
     </el-col>

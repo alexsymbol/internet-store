@@ -15,7 +15,6 @@
 
 <script>
 import axios from '../my-axios';
- 
 export default {
   data() {
     return {
