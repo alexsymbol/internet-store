@@ -24,7 +24,6 @@ export default {
         password: '',
         ownname: '',
         surname: '',
-        gender: '1',
         email: '',
         age: '',
         _id: ''
