@@ -3,14 +3,14 @@
     <el-col :span="12" :offset="6">
         <div class="grid-content bg-purple-light">
             <h2>Login</h2>
-            <log-in></log-in>
+            <logs-in></logs-in>
         </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
-import LogIn from '../components/logIn';
+import LogIn from '../components/logsIn';
 export default {
   components: {
     LogIn,
