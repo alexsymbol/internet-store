@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SignUp from '../components/Signup';
+import SignUp from '../components/signup';
 export default {
   components: {
     'SignUp': SignUp
