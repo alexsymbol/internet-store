@@ -31,25 +31,29 @@ export default {
   data() {
     return {
       labelPosition: 'left',
-      User: {}
+      User: {
+        username: '',
+        password: '',
+        ownname: '',
+        surname: '',
+        email: '',
+        age: ''
+      }
     };
   },
-  props: ['user'],
   methods: {
     onUpdate() {
         let user_id = localStorage.getItem('user_id');
-        console.log(this.user_id);
-        console.log(this.user);
-        console.log(this.User);
-    //   axios
-    //     .put('/auth' + this.User._id)
-    //     .then(function(response) {
-    //       console.log(response);
-    //     console.log('OK');
-    //     })
-    //     .catch(function(error) {
-    //       console.log(error);
-    //     });
+        console.log(user_id);        
+      axios
+        .put('/auth/' + user_id, this.User)
+        .then(function(response) {
+          console.log(response);
+            console.log('OK');
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 };

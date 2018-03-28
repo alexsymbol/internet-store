@@ -77,7 +77,7 @@ export default class TestCtrl extends BaseCtrl {
     async updateItem(ctx) {
         try {
             const item = await User.findByIdAndUpdate(ctx.params._id, {$set: ctx.request.body});
-            ctx.ok('UPDATE SUCCSESS');
+            ctx.ok(item);
         }
         catch (err) {
             ctx.throw(HttpStatus.BAD_REQUEST, err.message);
