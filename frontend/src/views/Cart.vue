@@ -54,26 +54,56 @@ export default {
       return this.items.reduce((sum, product) => {
         return sum + product.price
       }, 0)
-    }
+    },
   },
   methods: {
     onBuy() {
-      let idx = Math.floor(Math.random() * 1000000);
+      let idx = Math.floor(Math.random() * 10000000000);
       let order = {
         'id': idx, 
         'customer_id': this.$props.user._id,
         'customer_name': this.$props.user.ownname,
         'products': this.items 
         }
-      console.log(order);
-      axios.post('https://internet-store-admin.herokuapp.com/api/orders', order)                                 
-        .then(response => {                                      
-        console.log(response.data);                              
-        //this.$router.push('/orders');                      
-      })                                 
+      let total = this.total;
+
+      // axios.post('https://internet-store-admin.herokuapp.com/api/orders', order)                                 
+      //   .then(response => {                                      
+      //   console.log(response.data);                              
+      //   //this.$router.push('/orders');
+      //   console.log('order OK');                              
+      // })                                 
+      // .catch(error => {                                     
+      //   console.log(error);                                 
+      // });  
+
+      // axios.post('http://banksystemm.herokuapp.com/payment?sum=' + this.total)                                 
+      //   .then(response => {                                      
+      //   console.log(response.data); 
+      //   console.log('bank OK');                  
+      // })                                 
+      // .catch(error => {                                     
+      //   console.log(error);                                 
+      // });  
+      
+      
+      function postOrder() {
+        return axios.post('https://internet-store-admin.herokuapp.com/api/orders', order);  
+      }
+
+      function postBank() {
+        return axios.post('http://banksystemm.herokuapp.com/payment?sum=' + total);
+      }
+
+      axios.all([postOrder(), postBank()])
+      .then(axios.spread(function (acct, perms) {
+        console.log(response.data);
+        console.log('good');
+      }))
       .catch(error => {                                     
         console.log(error);                                 
-      });  
+      });
+
     },
     onDelete (selected) {
       this.items.forEach((product) => {

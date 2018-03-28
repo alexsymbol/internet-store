@@ -15,19 +15,23 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      name: 'Loign',
       path: '/login',
       component: logIn
     },
     {
+      name: 'Sign Up',
       path: '/signup',
       component: signUp
     },
     {
+      name: 'Profile page',
       title: 'Profile page',
       path: '/profilepage',
       component: ProfilePage
     },
     {
+      name: 'Cart',
       title: 'Cart',
       path: '/cart',
       component: Cart,
@@ -36,11 +40,13 @@ export default new Router({
         }
     },
     {
+      name: 'Orders',
       title: 'Orders',
       path: '/orders',
       component: OrderTable
     },
     {
+      name: 'logout',
       path: '/logout',
       component: Logout
     },
