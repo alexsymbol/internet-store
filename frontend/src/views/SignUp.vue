@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Signup from '../components/Signup.vue';
+import Signup from '../components/Signup';
 export default {
   components: {
     'Signup': Signup

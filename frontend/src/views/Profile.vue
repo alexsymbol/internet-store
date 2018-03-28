@@ -29,7 +29,7 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="Edit profile" name="second">
-              <Profilepage ></Profilepage>
+              <Profile ></Profile>
           </el-tab-pane>
         </el-tabs>
     </el-col>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Profilepage from '../components/Profilepage.vue';
+import Profile from '../components/Profile';
 export default {
   data() {
     return {
@@ -47,7 +47,7 @@ export default {
   },
   props: ['user'],
   components: {
-    'Profilepage': Profilepage
+    'Profile': Profile
   },
   methods: {
     logout() {

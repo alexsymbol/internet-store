@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import LogIn from '../views/LogIn';
 import SignUp from '../views/SignUp';
-import ProfilePage from '../views/ProfilePage';
+import Profile from '../views/Profile';
 import Cart from '../views/Cart.vue';
 
 Vue.use(Router);
@@ -19,9 +19,9 @@ export default new Router({
       component: SignUp
     },
     {
-      title: 'Profile page',
-      path: '/profilepage',
-      component: ProfilePage
+      title: 'Profile',
+      path: '/profile',
+      component: Profile
     },
     {
       title: 'Cart',

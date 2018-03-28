@@ -35,7 +35,7 @@ export default {
           console.log(response);
           localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
-          window.location.href = '/profilepage';
+          window.location.href = '/profile';
         })
         .catch(function(error) {
           console.log(error),
