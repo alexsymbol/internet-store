@@ -37,9 +37,10 @@ export default {
   methods: {
     onUpdate() {
       axios
-        .put('/:_id', this.User)
+        .put('/auth/profilepage/:_id', this.User)
         .then(function(response) {
           console.log(response);
+        console.log('OK');
         })
         .catch(function(error) {
           console.log(error);

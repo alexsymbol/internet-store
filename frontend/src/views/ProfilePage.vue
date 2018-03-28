@@ -50,13 +50,13 @@ export default {
     'profilePage': profilePage
   },
   methods: {
-      logout() {
-        localStorage.removeItem('jwtToken')
-        localStorage.removeItem('user_id')        
-        window.location.href = '/login'
+    logout() {
+      localStorage.removeItem('jwtToken')
+      localStorage.removeItem('user_id')        
+      window.location.href = '/login'
     },
     handleClick(tab, event) {
-        console.log(tab, event);
+      console.log(tab, event);
     }
   }
 };

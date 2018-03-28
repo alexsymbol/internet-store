@@ -8,7 +8,7 @@
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="onLogin()">Login</el-button>
-            <a href="signup" class="btn btn-link">Register</a>
+            <a href="signup" class="btn btn-link">Sign up</a>
         </el-form-item>
     </el-form>
 </template>

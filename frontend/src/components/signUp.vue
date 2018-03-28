@@ -33,15 +33,13 @@ export default {
       axios.post('/auth/', this.User)
         .then(function(response) {
           console.log(response);
+          localStorage.setItem('jwtToken', response.data.token);
+          localStorage.setItem('user_id', response.data._id);
           window.location.href = '/profilepage';
         })
         .catch(function(error) {
-          console.log(error);
-        });
-        this.$notify({
-          title: 'Success',
-          message: 'You have successfully registered',
-          type: 'success'
+          console.log(error),
+          alert('Please use a unique username')
         });
     }
   }  
