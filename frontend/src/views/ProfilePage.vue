@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import profilePage from '../components/profilePage.vue';
+import ProfilePage from '../components/ProfilePage.vue';
 export default {
   data() {
     return {

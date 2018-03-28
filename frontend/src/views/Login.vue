@@ -9,7 +9,7 @@
   </el-row>
 </template>
 <script>
-import logIn from '../components/logIn.vue';
+import LogIn from '../components/LogIn.vue';
 export default {
   components: {
     'logIn': logIn
