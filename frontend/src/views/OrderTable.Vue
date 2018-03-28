@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    OrderTable
+    Order Table
 
   </div>
 </template>

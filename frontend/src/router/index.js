@@ -16,12 +16,10 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      title: '',
       path: '/login',
       component: logIn
     },
     {
-      title: '',
       path: '/signup',
       component: signUp
     },
@@ -29,11 +27,6 @@ export default new Router({
       title: 'Profile page',
       path: '/profilepage',
       component: ProfilePage
-    },
-    {
-      title: 'Binding Account',
-      path: '/bindingAccount',
-      component: BindingAccount
     },
     {
       title: 'Cart',
