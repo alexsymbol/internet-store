@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import LogIn from '../views/LogIn';
-import SignUp from '../views/SignUp';
-import ProfilePage from '../views/ProfilePage';
+import login from '../views/LogIn';
+import signup from '../views/SignUp';
+import profilepage from '../views/ProfilePage';
 import Cart from '../views/Cart';
-import OrderTable from '../views/OrderTable';
+import ordertable from '../views/OrderTable';
 
 Vue.use(Router);
 
@@ -13,20 +13,18 @@ export default new Router({
   routes: [
     {
       path: '/login',
-      component: LogIn
+      component: login
     },
     {
       path: '/signup',
-      component: SignUp
+      component: signup
     },
     {
-      name: 'Profile page',
       title: 'Profile page',
       path: '/profilepage',
-      component: ProfilePage
+      component: profilepage
     },
     {
-      name: 'Cart',
       title: 'Cart',
       path: '/cart',
       component: Cart,
@@ -37,7 +35,7 @@ export default new Router({
     {
       title: 'Orders',
       path: '/orders',
-      component: OrderTable
+      component: ordertable
     },
     {
       path: '/*',
