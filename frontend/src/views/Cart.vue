@@ -11,22 +11,23 @@
         </tr>
       </thead>
       <tbody>
-          <tr v-for="product in items">
-            <td><img :src="product.image" /></td>
-            <td>{{ product.title }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.color }}</td>   
-            <td><el-button size="mini" type="danger" @click="onDelete(product)" icon="el-icon-delete"></el-button></td>
-          </tr>
+        <tr v-for="product in items">
+          <td><img :src="product.image" /></td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.color }}</td>   
+          <td><el-button size="mini" type="danger" @click="onDelete(product)" icon="el-icon-delete"></el-button></td>
+        </tr>
       </tbody>
     </table>
     <el-row :gutter="20">
-  <el-col :span="12" :offset="6"><div class="grid-content bg-purple">
-    <h2>Subtotal : ${{ total }} </h2>
-      <el-button type="primary" @click="onBuy">Proceed to checkout</el-button>
-    
-    </div></el-col>
-</el-row>
+      <el-col :span="12" :offset="6">
+        <div class="grid-content bg-purple">
+          <h2>Subtotal : ${{ total }} </h2>
+          <el-button type="primary" @click="onBuy">Proceed to checkout</el-button>
+        </div>
+      </el-col>
+    </el-row>
       
   </div>
 </template>
@@ -102,6 +103,12 @@ export default {
       }))
       .catch(error => {                                     
         console.log(error);                                 
+      });
+
+      this.$notify({
+        title: 'Success',
+        message: 'Thank you for your purchase',
+        type: 'success'
       });
 
     },

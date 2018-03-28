@@ -39,15 +39,13 @@ export default {
           console.log(response.data);
           localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
-          
           this.User.authenticated = true;
-          //console.log(User);
-         window.location.href = '/profilepage'
-      })
-      .catch(function (error) {
-        console.log(error),
-        alert('User is not found')
-      });
+          window.location.href = '/profilepage'
+        })
+        .catch(function (error) {
+          console.log(error),
+          alert('User is not found')
+        });
     }
   }
 };

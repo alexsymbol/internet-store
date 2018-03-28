@@ -5,9 +5,6 @@ import signUp from '../views/signUp';
 import ProfilePage from '../views/ProfilePage';
 import Cart from '../views/Cart';
 import OrderTable from '../views/OrderTable';
-import Logout from '../views/Logout';
-
-
 
 Vue.use(Router);
 
@@ -44,11 +41,6 @@ export default new Router({
       title: 'Orders',
       path: '/orders',
       component: OrderTable
-    },
-    {
-      name: 'logout',
-      path: '/logout',
-      component: Logout
     },
     {
       path: '/*',

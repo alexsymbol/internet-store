@@ -1,4 +1,4 @@
-console.log('TEST')<template>
+<template>
 
   <el-container style="height: 100%;">
     <el-header>
