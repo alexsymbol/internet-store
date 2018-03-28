@@ -13,7 +13,7 @@
 import SignUp from '../components/SignUp.vue';
 export default {
   components: {
-    'signUp': signUp
+    'SignUp': SignUp
   }
 };
 </script>

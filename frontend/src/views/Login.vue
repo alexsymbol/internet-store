@@ -12,7 +12,7 @@
 import LogIn from '../components/LogIn.vue';
 export default {
   components: {
-    'logIn': logIn
+    'LogIn': LogIn
   }
 };
 </script>
