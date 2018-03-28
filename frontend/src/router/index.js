@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import logIn from '../views/logIn';
 import signUp from '../views/signUp';
 import ProfilePage from '../views/ProfilePage';
-import BindingAccount from '../views/BindingAccount';
 import Cart from '../views/Cart';
 import OrderTable from '../views/OrderTable';
 import Logout from '../views/Logout';
