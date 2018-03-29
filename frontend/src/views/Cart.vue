@@ -78,7 +78,6 @@ export default {
         console.log(error);                                 
       });  
 
-
       window.location.href = 'https://banksystemm.herokuapp.com/payment?sum=' + total;
 
     },

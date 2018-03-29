@@ -19,7 +19,6 @@ export default {
   data() {
     return {
       User: {
-        authenticated: false, 
         username: '',
         password: '',
         ownname: '',
@@ -34,9 +33,10 @@ export default {
     onLogin() {
       axios.post('/auth/login', this.User)
         .then((response) => {
+          localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
-          this.User.authenticated = true;
-          window.location.href = '/profile'
+          console.log(response.data);
+          // window.location.href = '/profile'
         })
         .catch(function (error) {
           console.log(error),
