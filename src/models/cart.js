@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-        image: { type: String },
+        img: { type: String },
         title: { type: String },
         price: { type: Number },
         color: { type: String }

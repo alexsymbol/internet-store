@@ -100,16 +100,9 @@ export default {
       axios.all([postOrder(), postBank()])
       .then(axios.spread(function (acct, perms) {
         console.log(response.data);
-        console.log('good');
       }))
       .catch(error => {                                     
         console.log(error);                                 
-      });
-
-      this.$notify({
-        title: 'Success',
-        message: 'Thank you for your purchase',
-        type: 'success'
       });
 
     },
