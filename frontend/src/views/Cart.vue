@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr v-for="product in items">
-          <td><img :src="product.image" /></td>
+          <td><img :src="product.img" /></td>
           <td>{{ product.title }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.color }}</td>   

@@ -44,12 +44,11 @@ export default {
   methods: {
     onUpdate() {
         let user_id = localStorage.getItem('user_id');
-        console.log(user_id);        
       axios
         .put('/auth/' + user_id, this.User)
         .then(function(response) {
           console.log(response);
-            console.log('OK');
+          alert('OK');
         })
         .catch(function(error) {
           console.log(error);

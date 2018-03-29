@@ -33,7 +33,6 @@ export default {
       axios.post('/auth/', this.User)
         .then(function(response) {
           console.log(response);
-          localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
           window.location.href = '/profile';
         })
