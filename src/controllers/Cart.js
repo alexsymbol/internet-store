@@ -22,9 +22,7 @@ export default class TestCtrl extends BaseCtrl {
         try {
             const result = ctx.request.body.result;
             if (result === 'paid') {
-                // send to Masha that OK
-                //
-                //
+                console.log('PAY OK');
                 ctx.ok();
             } else {
                 // send to Masha that NOT OK
