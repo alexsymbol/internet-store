@@ -9,11 +9,31 @@ export default class TestCtrl extends BaseCtrl {
     @get('')
     async getCart(ctx) {
         var decoded = jwt.decode(ctx.headers.authorization, {complete: true});
-        console.log(decoded);
         try {
             const items = await Cart.find().lean();
             ctx.ok(items);
         } catch (err) {
+            ctx.throw(HttpStatus.BAD_REQUEST, err.message);
+        }
+    }
+
+    @post('/paid')
+    async result(ctx) {
+        try {
+            const result = ctx.request.body.result;
+            if (result === 'paid') {
+                // send to Masha that OK
+                //
+                //
+                ctx.ok();
+            } else {
+                // send to Masha that NOT OK
+                //
+                //
+                ctx.status = 501;
+            }
+        }
+        catch (err) {
             ctx.throw(HttpStatus.BAD_REQUEST, err.message);
         }
     }
