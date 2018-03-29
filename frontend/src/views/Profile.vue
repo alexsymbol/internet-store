@@ -38,6 +38,7 @@
 
 <script>
 import Profile from '../components/Profile';
+import { create } from 'domain';
 export default {
   data() {
     return {
@@ -48,6 +49,9 @@ export default {
   props: ['user'],
   components: {
     Profile,
+  },
+  updated() {
+    console.log(this.user)
   },
   methods: {
     logout() {

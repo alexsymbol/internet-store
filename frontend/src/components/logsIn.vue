@@ -33,6 +33,7 @@ export default {
     onLogin() {
       axios.post('/auth/login', this.User)
         .then((response) => {
+          console.log(this.User)
           localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
           console.log(response.data);

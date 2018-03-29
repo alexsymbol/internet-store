@@ -28,7 +28,7 @@ export default {
   components: {
     NavBar,
   },
-  beforeCreate() {
+  created() {
     if (localStorage.getItem('user_id')) {
       let user_id = localStorage.getItem('user_id');
        axios.get('/auth/' + user_id)
