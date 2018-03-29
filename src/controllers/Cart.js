@@ -17,25 +17,6 @@ export default class TestCtrl extends BaseCtrl {
         }
     }
 
-    @post('/paid')
-    async result(ctx) {
-        try {
-            const result = ctx.request.body.result;
-            if (result === 'paid') {
-                console.log('PAY OK');
-                ctx.ok();
-            } else {
-                // send to Masha that NOT OK
-                //
-                //
-                ctx.status = 501;
-            }
-        }
-        catch (err) {
-            ctx.throw(HttpStatus.BAD_REQUEST, err.message);
-        }
-    }
-
     @post('')
     async createItem(ctx) {
         try {
@@ -68,4 +49,24 @@ export default class TestCtrl extends BaseCtrl {
             ctx.throw(HttpStatus.BAD_REQUEST, err.message);
         }
     }
+
+    @post('/paid')
+    async result(ctx) {
+        try {
+            const result = ctx.request.body.result;
+            if (result === 'paid') {
+                console.log('PAY OK');
+                ctx.ok();
+            } else {
+                // send to Masha that NOT OK
+                //
+                //
+                ctx.status = 501;
+            }
+        }
+        catch (err) {
+            ctx.throw(HttpStatus.BAD_REQUEST, err.message);
+        }
+    }
+
 }

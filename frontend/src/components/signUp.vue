@@ -30,12 +30,13 @@ export default {
   },
   methods: {
     onSignup() {
-      axios.post('/auth/', this.User)
+      axios.post('/auth', this.User)
         .then(function(response) {
           console.log(response);
           localStorage.setItem('jwtToken', response.data.token);
           localStorage.setItem('user_id', response.data._id);
-          this.$router.push('/profile');
+          // this.$router.push('/profile');
+          window.location.href = "/profile";
         })
         .catch(function(error) {
           console.log(error),

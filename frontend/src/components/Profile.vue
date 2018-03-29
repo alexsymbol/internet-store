@@ -49,6 +49,7 @@ export default {
         .then(function(response) {
           console.log(response);
           alert('OK');
+          location.reload();
         })
         .catch(function(error) {
           console.log(error);

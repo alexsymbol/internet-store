@@ -38,6 +38,7 @@ export default {
           localStorage.setItem('user_id', response.data._id);
           console.log(response.data);
           this.$router.push('/profile');
+          location.reload();
         })
         .catch(function (error) {
           console.log(error),
